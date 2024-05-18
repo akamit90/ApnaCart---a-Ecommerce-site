@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ModalSection from '../../components/ModalSection/ModalSection';
 import CartEmpty from '../CartEmpty/CartEmpty';
 
+
+
 function Cart( { cart,handleDec,handleInc,handleRemove,getTotalPrice ,applyPromoCode,promocode,setPromoCode,invalid} ) {
 
  const navigate = useNavigate();
+
+
 
   return (
     <>

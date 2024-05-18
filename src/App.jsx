@@ -14,9 +14,19 @@ import SingleProduct from './pages/Singleproduct/SingleProduct'
 import About from './components/About/About'
 import Contact from './components/Contact/Contact'
 
+// to store in local storage
+const getLocalItems = () => {
+  let list = localStorage.getItem('cartList');
+  if (list) {
+    return JSON.parse(localStorage.getItem('cartList'));
+  } else {
+    return [];
+  }
+};
+
 function App() {
 
-  const [cart,setCart]=useState([])
+  const [cart,setCart]=useState(getLocalItems())
   
   const [promocode,setPromoCode]=useState("")
 
@@ -104,6 +114,12 @@ function App() {
   }, []);
   
 
+
+
+  // local storage (when cart is update then set it in local storage)
+  useEffect(() => {
+    localStorage.setItem('cartList', JSON.stringify(cart));
+  }, [cart]);
   
 
   return (
