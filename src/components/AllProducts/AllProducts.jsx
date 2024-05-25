@@ -29,8 +29,9 @@ const AllProducts = ({AddToCart}) => {
   useEffect(() => {
     const fetchAllProductsCategory = async () => {
       try {
-        const res = await axios("https://dummyjson.com/products/categories");
+        const res = await axios("https://dummyjson.com/products/category-list");
         setAllCategory(res.data);
+        console.log(res.data)
       } catch (error) {
         console.log(error);
       }
